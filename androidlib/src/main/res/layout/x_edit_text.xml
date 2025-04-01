@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.naoh.androidlib.vm.XEditTextVM" />
+    </data>
+
+    <com.naoh.androidlib.v.CheckableLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="0dp">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@{vm.text}"
+            android:layout_weight="1"
+            android:afterTextChanged="@{vm.afterTextChange}"
+            android:background="@null"
+            android:hint="@{vm.hint}"
+            app:onFocusChangeListener="@{vm.focusChangeListener}" />
+
+        <com.naoh.androidlib.v.CheckableImageView
+            android:layout_width="wrap_content"
+            android:visibility="@{vm.icClearVisibility}"
+            android:layout_height="match_parent"
+            android:onClick="@{vm.clear}"
+            android:src="@drawable/ic_clear"
+            android:tint="@{vm.iconColor}" />
+
+        <ViewFlipper
+            android:id="@+id/flipper"
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:onClick="@{vm.flip}"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:id="@+id/ivOff"
+                android:layout_height="match_parent"
+                android:tint="@{vm.iconColor}"
+                android:src="@drawable/ic_visibility_off" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:tint="@{vm.iconColor}"
+                android:id="@+id/ivOn"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_visibility" />
+        </ViewFlipper>
+    </com.naoh.androidlib.v.CheckableLinearLayout>
+</layout>
