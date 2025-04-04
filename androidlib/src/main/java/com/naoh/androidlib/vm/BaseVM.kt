@@ -10,5 +10,4 @@ open class BaseVM(
 ) : BaseObservable() {
 
 
-
 }
