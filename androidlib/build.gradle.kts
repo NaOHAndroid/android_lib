@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     id("kotlin-kapt")
 }
+version = "1.0.0"
 
 android {
     namespace = "com.naoh.androidlib"
