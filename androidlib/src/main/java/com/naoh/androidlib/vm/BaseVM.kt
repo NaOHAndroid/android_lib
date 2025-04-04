@@ -9,5 +9,4 @@ open class BaseVM(
     val v: View? = null
 ) : BaseObservable() {
 
-
 }
